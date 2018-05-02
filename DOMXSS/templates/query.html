@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="/static/image/png" sizes="16x16" href="/static/images/favicon.png">
+    <title>测试平台</title>
+    <!-- Bootstrap Core CSS -->
+    <link href=" /static/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <link href="/static/css/lib/calendar2/semantic.ui.min.css" rel="stylesheet">
+    <link href="/static/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="/static/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/static/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="/static/css/helper.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="/static/js/lib/jquery/jquery.min.js"></script>
+
+    <script src="/static/js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="/static/js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/static/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="/static/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/static/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/static/js/custom.min.js"></script>
+
+<![endif]-->
+</head>
+
+
+<div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>查询帖子状态</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="basic-elements">
+                                    <form method="get" action="doquery">{% csrf_token %}
+                                            <div class="input-group input-group-rounded">
+                                                <input placeholder="随便输入下列标题其中之一获取搜索历史" name="Search" class="form-control" type="text">
+                                                <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>
+                                            </div>
+                                    </form>
+
+<div class="row">
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>搜索内容 </h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                            <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>标题</th>
+                                                <th>内容</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             {% for item in querylist %}
+                                            <tr>
+                                                <th scope="row">{{forloop.counter}}</th>
+                                                <td>{{item.title}}</td>
+                                                <td>{{item.text}}</td>
+                                            </tr>
+                                           {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /# column -->
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>搜索历史 </h4>
+                            </div>
+                            <div id="keyname">
+                            </div>
+                    </div>
+
+
+
+
+<!--触发XSS的核心代码-->
+<script>
+     $(function () {
+            $.ajax({
+                url: 'synchistory',
+                type: 'GET',
+                dataType: 'json',
+                timeout: 1000,
+                cache: false,
+                beforeSend: LoadFunction, //加载执行方法
+                error: erryFunction,  //错误执行方法
+                success: succFunction //成功执行方法
+            })
+            function LoadFunction() {
+                $("#list").html('加载中...');
+            }
+            function erryFunction() {
+                alert("error");
+            }
+            function succFunction(tt) {
+                console.log(tt)
+                var final =""
+                var json = eval(tt); //发生安全问题的核心代码,使用json_prase替换eval
+                console.log(json)
+                for(var i=0;i<json.length;i++){
+                output =json[i].fields.name;
+                final += "<a href=#>"+output+"</a> </br>"
+            }
+                $("#keyname").append(final)
+                }
+            });
+</script>
+
