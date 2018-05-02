@@ -1,4 +1,4 @@
-# DOM型XSS的漏洞Demo
+# DOM型XSS，经典的编码解析问题
 
 ## 漏洞出处
 
@@ -15,9 +15,15 @@ gainover发现的腾讯的DOM型XSS漏洞，本实例基于试图尽可能还原
 docker-compose up -d
 ```
 
+访问`http://your-ip:8000/`，
+
 登录页面，输入用户名密码：
 
 ```
 用户名：admin
 密码：admin
 ```
+
+
+
+
