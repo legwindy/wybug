@@ -4,7 +4,13 @@ wybug是自己在企业内部安全培训的时候，为程序员特意编写的
 
 ## 使用方法
 
+安装使用方法与vulhub一致请参考：
 ```bash
-请参考：
 https://github.com/vulhub/vulhub/blob/master/README.md
+```
+
+## 注意事项
+
+务必不要在企业生产网络上激活此环境，可能给企业的信息安全造成相当大的危害。
+
 
