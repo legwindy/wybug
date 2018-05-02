@@ -24,6 +24,21 @@ docker-compose up -d
 密码：admin
 ```
 
+![](01.png)
+
+如图所示，简单的`<script>`并不能触发相应的xss漏洞
+
+使用漏洞编码：
+
+`\x22\x3E\x3cimg\x2fsrc\x3d1\x20onerror\x3d\x22alert(1)\x22`
+
+可触发XSS
+
+![](02.png)
+
+![](03.png)
+
+
 
 
 
