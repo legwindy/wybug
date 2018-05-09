@@ -12,8 +12,15 @@ https://github.com/vulhub/vulhub/blob/master/README.md
 ```
 
 国内在进行`docker-compose build`这一步时候会比较缓慢，建议更新docker源：
+```bash
+vi /etc/docker/daemon.json
 
-
+添加：
+```
+{
+    "registry-mirrors": ["https://dftbcros.mirror.aliyuncs.com"]
+}
+```
 
 ## 注意事项
 
