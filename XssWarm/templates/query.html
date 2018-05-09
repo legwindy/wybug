@@ -118,7 +118,8 @@
                 console.log(json)
                 for(var i=0;i<json.length;i++){
                 output =json[i].fields.commit;
-                final += "<tr><th>"+output+"</th> </tr>"
+                user =json[i].fields.user;
+                final += "<tr><th>user："+user+"</th><th>"+output+"</th> </tr>"
             }
                 $("#output").append(final)
                 }

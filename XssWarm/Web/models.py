@@ -10,6 +10,7 @@ class user(models.Model):
     password = models.CharField(max_length=30)
 
 class commit(models.Model):
+    user = models.CharField(max_length=20)
     commit = models.TextField(max_length=80)
 
 

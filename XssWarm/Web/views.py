@@ -50,6 +50,8 @@ def logout(request):
 @authcheck
 def comment(request):
     text = request.POST["commit"]
-    commit.objects.create(commit=text)
+    user = request.session['user']
+    print user
+    commit.objects.create(user=user,commit=text)
     return render(request,'query.html')
 
