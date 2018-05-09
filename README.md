@@ -11,6 +11,10 @@ wybug是自己在企业内部安全培训的时候，为程序员特意编写的
 https://github.com/vulhub/vulhub/blob/master/README.md
 ```
 
+国内在进行`docker-compose build`这一步时候会比较缓慢，建议更新docker源：
+
+
+
 ## 注意事项
 
 务必不要在企业生产网络上激活此环境，可能给企业的信息安全造成相当大的危害。
